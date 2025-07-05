@@ -8,12 +8,21 @@ public static class Arrays
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        //create a lenth of the double var
+        //for loop to go trhough the length and add to the results
+        //return the datza
 
-        return []; // replace this return statement with your own
+         // have to start ou t with an array first so ill get the length of the double var passed through and make it an array
+        var results = new double[length];
+        
+        // have to do a for loop through the length of the array and store it 
+        for (int i = 0; i < length; i++)
+        {
+            results[i] = number * (i + 1);
+        }
+
+        // return it so the test can fail or pass it
+        return results; 
     }
 
     /// <summary>
@@ -25,9 +34,20 @@ public static class Arrays
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        //create a number in a var of data.count minus amount
+        //create a list of the range of the data vs the amount
+        //add the remove range and insert it at the beginning
+        
+         // I think I should subtract the data for the count of the data vs the amount
+        int subtrationOfData = data.Count - amount;
+
+        // creat a list of the data with the range of the subtrated data vs the amount
+        List<int> elementsToMove = data.GetRange(subtrationOfData, amount);
+
+        // remove the range, because just using the list i created above didnt work and the numbers in the list were not ordered
+        data.RemoveRange(subtrationOfData, amount);
+
+        // insert the elements to move at the first of the list so it can be ordered correctly 
+        data.InsertRange(0, elementsToMove);
     }
 }
